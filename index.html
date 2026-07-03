@@ -127,11 +127,11 @@
         </div>
     </div>
 
-    <!-- 2. HERO COVER (全螢幕封面背景) -->
+    <!-- 2. HERO COVER (全螢幕封面背景 - 已更新為 TOR09119 新圖片網址) -->
     <header class="relative w-full h-screen overflow-hidden flex items-center justify-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="https://i.postimg.cc/W3nqtdjN/260529-TOR09048.jpg" alt="Moudy & Nandy Wedding Background" class="w-full h-full object-cover">
+            <img src="https://i.postimg.cc/B6m5cHNV/260529-TOR09119.jpg" alt="Moudy & Nandy Wedding Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-stone-900/35"></div>
         </div>
 
@@ -239,7 +239,7 @@
                     <p class="font-eng text-xs text-neutral-400 uppercase tracking-widest mb-4">THE VENUE</p>
                     <p class="font-serifTC text-stone-700 font-light leading-relaxed">
                         <span class="text-lg font-medium block text-morandi-green mb-1 no-wrap">晶華酒店 B3 晶英會</span>
-                        <span class="no-wrap">臺北市中山區中山北路二段39巷3號</span>
+                        <span class="no-wrap font-semibold text-morandi-green">臺北市中山區中山北路二段39巷3號</span>
                     </p>
                 </div>
 
@@ -267,7 +267,7 @@
                             </button>
                             <div id="mrt-accordion" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
                                 <div class="p-5 text-sm leading-relaxed text-stone-600 bg-white border-t border-stone-200">
-                                    搭乘<span class="no-wrap font-semibold text-morandi-gold">捷運淡水線(紅線)</span>至<span class="no-wrap font-semibold text-morandi-gold">中山站4號出口</span>，步行約<span class="no-wrap">6分鐘</span>即可抵達。
+                                    搭乘<span class="no-wrap font-semibold text-morandi-gold">捷運淡水線(紅線)中山站4號出口</span>，步行約<span class="no-wrap">6分鐘</span>即可抵達。
                                 </div>
                             </div>
                         </div>
@@ -300,6 +300,7 @@
                 <span class="font-eng text-xs tracking-[0.3em] uppercase text-morandi-gold font-semibold">JOIN OUR CELEBRATION</span>
                 <h2 class="font-serifTC text-3xl font-light mt-2 text-stone-800">出席回函</h2>
                 <div class="w-10 h-[1px] bg-morandi-gold mx-auto mt-4"></div>
+                <!-- 截止日期為 2026年9月30日 -->
                 <p class="text-xs text-stone-400 font-light mt-2">請於 2026年9月30日前 填寫完畢，期待您的到來</p>
             </div>
 
@@ -307,7 +308,7 @@
             <script type="text/javascript">var submitted=false;</script>
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { handleFormSubmitSuccess(); }"></iframe>
 
-            <!-- FORM START (對接精準 Action 與 ID) -->
+            <!-- FORM START (精準對應 Google 表單 Action、各欄位 ID，且確保網頁輸入框完全清空) -->
             <form action="https://docs.google.com/forms/d/e/1FAIpQLSeldubWdv4ilCiMZggJ7P-Px3DIFzUjlDyuif3BuGvjEoUuFg/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6 max-w-lg mx-auto">
                 
                 <!-- 姓名 (Bilingual label, Empty default input) -->
@@ -342,13 +343,13 @@
                     </select>
                 </div>
 
-                <!-- 參加人數 (Bilingual label, Pure Chinese options, Values aligned to backend) -->
+                <!-- 參加(成人)人數 (Bilingual label, Pure Chinese options, Values aligned to backend) -->
                 <div>
                     <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase" for="attendance_count">
-                        參加人數 <span class="font-eng ml-1 text-[10px] text-stone-400">ATTENDANCE COUNT</span> <span class="text-red-400">*</span>
+                        參加(成人)人數 <span class="font-eng ml-1 text-[10px] text-stone-400">ADULT ATTENDANCE COUNT</span> <span class="text-red-400">*</span>
                     </label>
                     <select name="entry.167705849" id="attendance_count" class="form-input text-stone-800" required onchange="handleAttendanceChange(this.value)">
-                        <option value="" disabled selected>請選擇參與狀態 / 人數</option>
+                        <option value="" disabled selected>請選擇成人參與狀態 / 人數</option>
                         <option value="0">無法出席</option>
                         <option value="1">1 人出席</option>
                         <option value="2">2 人出席</option>
@@ -364,21 +365,40 @@
                     </select>
                 </div>
 
-                <!-- SMART CONDITIONAL FIELD 1: 飲食需求 (對接: 葷食 MEAT LOVER 與 素食 VEGETARIAN) -->
-                <div id="dietary_container" class="expandable-field">
-                    <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase">
-                        飲食需求 <span class="font-eng ml-1 text-[10px] text-stone-400">DIETARY PREFERENCE</span>
+                <!-- SMART CONDITIONAL FIELD 1: 參加(兒童)人數 (對接: entry.1907527814) -->
+                <div id="child_attendance_container" class="expandable-field">
+                    <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase" for="child_attendance_count">
+                        參加(兒童)人數 <span class="font-eng ml-1 text-[10px] text-stone-400">CHILD ATTENDANCE COUNT</span>
                     </label>
-                    <select name="entry.96910553" id="dietary_select" class="form-input text-stone-800">
-                        <option value="" disabled selected>請選擇飲食習慣</option>
-                        <option value="葷食 MEAT LOVER">葷食</option>
-                        <option value="素食 VEGETARIAN">素食</option>
+                    <select name="entry.1907527814" id="child_attendance_count" class="form-input text-stone-800">
+                        <option value="" disabled selected>請選擇兒童人數</option>
+                        <option value="0">0 人</option>
+                        <option value="1">1 人</option>
+                        <option value="2">2 人</option>
+                        <option value="3">3 人</option>
+                        <option value="4">4 人</option>
+                        <option value="5">5 人及以上</option>
                     </select>
                 </div>
 
-                <!-- SMART CONDITIONAL FIELD 2: 是否需要兒童椅 (對接: 不需要 NO~ 與 需要1/2/3張) -->
+                <!-- SMART CONDITIONAL FIELD 2: 是否準備素食？需要幾份？ (對接: entry.96910553) -->
+                <div id="dietary_container" class="expandable-field">
+                    <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase" for="dietary_select">
+                        是否準備素食？需要幾份？ <span class="font-eng ml-1 text-[10px] text-stone-400">VEGETARIAN MEALS NEEDED</span>
+                    </label>
+                    <select name="entry.96910553" id="dietary_select" class="form-input text-stone-800">
+                        <option value="" disabled selected>請選擇需求份數</option>
+                        <option value="不需要，我要葷食">不需要，我要葷食</option>
+                        <option value="需要1份素食">需要 1 份素食</option>
+                        <option value="需要2份素食">需要 2 份素食</option>
+                        <option value="需要3份素食">需要 3 份素食</option>
+                        <option value="需要4份素食">需要 4 份素食</option>
+                    </select>
+                </div>
+
+                <!-- SMART CONDITIONAL FIELD 3: 是否需要兒童椅 (對接: 不需要 NO~ 與 需要1/2/3張) -->
                 <div id="child_chair_container" class="expandable-field">
-                    <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase">
+                    <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase" for="child_chair_select">
                         需要兒童餐椅 / 餐具 <span class="font-eng ml-1 text-[10px] text-stone-400">CHILD CHAIR NEEDED</span>
                     </label>
                     <select name="entry.752009861" id="child_chair_select" class="form-input text-stone-800">
@@ -485,26 +505,40 @@
         // --- 3. SMART CONDITIONAL LOGIC FOR RSVP FORM ---
         function handleAttendanceChange(value) {
             const numValue = parseInt(value, 10);
+            
+            // Conditional containers
+            const childAttendanceContainer = document.getElementById('child_attendance_container');
             const dietaryContainer = document.getElementById('dietary_container');
             const childChairContainer = document.getElementById('child_chair_container');
             
+            // Sub-select elements
+            const childAttendanceSelect = document.getElementById('child_attendance_count');
             const dietarySelect = document.getElementById('dietary_select');
             const childChairSelect = document.getElementById('child_chair_select');
 
             if (numValue > 0) {
                 // Show conditional fields
+                childAttendanceContainer.classList.add('show');
                 dietaryContainer.classList.add('show');
                 childChairContainer.classList.add('show');
                 
+                // Add required property
+                childAttendanceSelect.setAttribute('required', 'true');
                 dietarySelect.setAttribute('required', 'true');
                 childChairSelect.setAttribute('required', 'true');
             } else {
                 // Hide conditional fields
+                childAttendanceContainer.classList.remove('show');
                 dietaryContainer.classList.remove('show');
                 childChairContainer.classList.remove('show');
                 
+                // Remove required status
+                childAttendanceSelect.removeAttribute('required');
                 dietarySelect.removeAttribute('required');
                 childChairSelect.removeAttribute('required');
+                
+                // Reset selected values
+                childAttendanceSelect.value = "";
                 dietarySelect.value = "";
                 childChairSelect.value = "";
             }
@@ -550,7 +584,7 @@
         }
 
         mobileMenuBtn.addEventListener('click', openMobileMenu);
-        closeMenuBtn.addEventListener('click', closeMobileMenu);
+        closeMenuBtn.addEventListener('click', closeMenuBtn);
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });

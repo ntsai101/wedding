@@ -334,16 +334,16 @@
                     </label>
                     <select name="entry.1979645747" class="form-input text-stone-800" required>
                         <option value="" disabled selected>請選擇關係</option>
-                        <option value="男方同學，好友">男方同學，好友</option>
-                        <option value="女方同學，好友">女方同學，好友</option>
-                        <option value="男方親戚">男方親戚</option>
-                        <option value="女方親戚">女方親戚</option>
                         <option value="男方家人親戚">男方家人親戚</option>
                         <option value="女方家人親戚">女方家人親戚</option>
+                        <option value="男方長官同事">男方長官同事</option>
+                        <option value="女方長官同事">女方長官同事</option>
+                        <option value="男方同學，好友">男方同學，好友</option>
+                        <option value="女方同學，好友">女方同學，好友</option>
                     </select>
                 </div>
 
-                <!-- 參加(成人)人數 (Bilingual label, Pure Chinese options, Values aligned to backend) -->
+                <!-- 參加人數 (Bilingual label, Pure Chinese options, Values aligned to backend) -->
                 <div>
                     <label class="block text-stone-700 text-xs font-semibold tracking-wider mb-2 font-serifTC uppercase" for="attendance_count">
                         參加(成人)人數 <span class="font-eng ml-1 text-[10px] text-stone-400">ADULT ATTENDANCE COUNT</span> <span class="text-red-400">*</span>
@@ -584,7 +584,7 @@
         }
 
         mobileMenuBtn.addEventListener('click', openMobileMenu);
-        closeMenuBtn.addEventListener('click', closeMenuBtn);
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
